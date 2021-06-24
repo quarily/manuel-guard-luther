@@ -105,7 +105,7 @@ message.guild.channels.cache.filter(c => c.permissionOverwrites.has(role.id)).fo
     if(command === "backup" && message.author.id === "BOT SAHİBİ ID") {
       let rol = message.mentions.roles.first();
       if (!args[0] || isNaN(args[0])) return message.channel.send(embed.setDescription("Geçerli bir rol ID'si belirtmelisin!"));
-      let data = await backup.findOne({guildID: helper.Guild, roleID: args[0]})
+      let data = backup.findOne({guildID: helper.Guild, roleID: args[0]})
       if(!data) return message.channel.send(`Kurmaya çalıştığınız backup ID bulunamadı.`)
 
       setTimeout(() => {
